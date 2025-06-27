@@ -1,17 +1,17 @@
-// Définition de l'énumération des types d'éléments
+
 const TypeElement = Object.freeze({
   INGREDIENT: 'INGREDIENT',
   ALLERGENE: 'ALLERGENE',
   ADDITIF: 'ADDITIF',
 });
 
-// Définition de l'énumération des unités
+
 const Unite = Object.freeze({
   MICRO_GRAMMES: 'µg',
   MILLI_GRAMMES: 'mg',
 });
 
-// Classe mère Element
+
 class Element {
   constructor(nom, valeur, unite) {
     this.nom = nom;
@@ -20,7 +20,7 @@ class Element {
   }
 }
 
-// Sous-classes
+
 class Ingredient extends Element {
   constructor(nom, valeur, unite) {
     super(nom, valeur, unite);
@@ -39,7 +39,7 @@ class Additif extends Element {
   }
 }
 
-// Factory
+
 class ElementFactory {
   static creerElement(type, nom, valeur, unite) {
     if (!Object.values(Unite).includes(unite)) {
@@ -58,11 +58,11 @@ class ElementFactory {
   }
 }
 
-// Exemples d'utilisation
+
 const sucre = ElementFactory.creerElement(TypeElement.INGREDIENT, 'Sucre', 10, Unite.MILLI_GRAMMES);
 const gluten = ElementFactory.creerElement(TypeElement.ALLERGENE, 'Gluten', 500, Unite.MICRO_GRAMMES);
 const e330 = ElementFactory.creerElement(TypeElement.ADDITIF, 'E330', 100, Unite.MICRO_GRAMMES);
 
-console.log(sucre);    // Ingredient { nom: 'Sucre', valeur: 10, unite: 'mg' }
-console.log(gluten);   // Allergene { nom: 'Gluten', valeur: 500, unite: 'µg' }
-console.log(e330);     // Additif { nom: 'E330', valeur: 100, unite: 'µg' }
+console.log(sucre);    
+console.log(gluten);   
+console.log(e330);     
